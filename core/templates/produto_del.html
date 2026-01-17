@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %}
+   Deletar produtos
+{% endblock %}
+
+{% block content %}
+<h1>Produtos</h1>
+    <form method="post">
+        {% csrf_token %}
+
+        {% bootstrap_form form %}
+        <p>Você tem certeza que deseja deletar o produto {{ object }}?</p>
+        {% bootstrap_button button_type="submit" content="Deletar" %}
+        {% url 'index' as url_cancelar %}
+        {% bootstrap_button type="button" content="Cancelar" href=url_cancelar size="md" extra_classes="btn-secondary" %}
+
+    </form>
+{% endblock %}

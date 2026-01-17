@@ -1,0 +1,20 @@
+{% load django_bootstrap5 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD via CBV</title>
+    {% bootstrap_css %}
+    {% bootstrap_messages %}
+
+</head>
+<body>
+    <div class="container">
+        <h1> CRUD VIA CBV</h1>
+        {% block content %}{% endblock content %}
+
+</body>
+{% bootstrap_javascript %}
+</html>

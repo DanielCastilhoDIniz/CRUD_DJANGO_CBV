@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %}
+
+{% block title %}
+    Formulário de Produtos
+{% endblock %}
+
+{% block content %}
+<h1>Produtos</h1>
+    <form method="post">
+        {% csrf_token %}
+
+        {% bootstrap_form form %}
+            {% comment %}
+            {% bootstrap_button button_type="submit" content="Salvar" %}
+            {% url 'index' as url_cancelar %}
+            {% bootstrap_button type="button" content="Cancelar" href=url_cancelar size="md" extra_classes="btn-secondary" %}
+            {% endcomment %}
+
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="button" class="btn btn-warning"><a href="{% url 'index' %}">Cancelar</a></button>
+
+
+    </form>
+{% endblock %}
