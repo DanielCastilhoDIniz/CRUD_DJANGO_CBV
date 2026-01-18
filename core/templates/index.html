@@ -12,24 +12,26 @@
                     <th scope="col">Ação</th>
                 </tr>
             </thead>
+
             <tbody>
-                {% for produto in produtos %}
-                <tr>
-
-                    <td scope="row">{{ produto.id }}</td>
-                    <td scope="row">{{ produto.nome }}</td>
-                    <td scope="row">{{ produto.preço|intcomma }}</td>
-                    <td scope="row">
-                        <a href="{% url 'update_produto' produto.id  %}" class="btn btn-warning">Editar</a>
-                        <a href="{% url 'delete_produto' produto.pk  %}" class="btn btn-danger">Deletar</a>
-                        <a href="{% url 'add_produto' %}" class="btn btn-primary">Cadastrar</a>
-                    </td>
-                </tr>
+                {% for produto in page_obj %}
+                    <tr>
+                        <td scope="row">{{ produto.id }}</td>
+                        <td scope="row">{{ produto.nome }}</td>
+                        <td scope="row">{{ produto.preço|intcomma }}</td>
+                        <td scope="row">
+                            <a href="{% url 'update_produto' produto.id  %}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{% url 'delete_produto' produto.pk  %}" class="btn btn-danger btn-sm">Deletar</a>
+                            {% comment %} <a href="{% url 'add_produto' %}" class="btn btn-primary">Cadastrar</a> {% endcomment %}
+                        </td>
+                    </tr>
                 {% endfor %}
-
             </tbody>
-
+            {% comment %} <div class="d-grid gap-2 d-md-block">
+                <a href="{% url 'add_produto' %}" class="btn btn-primary class=">Cadastrar Novo Produto</a>
+            </div> {% endcomment %}
         </table>
+        {% include 'paginacao.html' %}
 
     </div>
 {% endblock content %}

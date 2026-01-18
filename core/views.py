@@ -5,12 +5,13 @@ from django.urls import reverse_lazy
 from .models import Produto
 
 
-
 class IndexView(ListView):
     model = Produto
     template_name = 'index.html'
     context_object_name = 'produtos'
     queryset = Produto.objects.all()
+    paginate_by = 3
+    ordering = ['id']
 
 
 class ProdutoCreateView(CreateView):

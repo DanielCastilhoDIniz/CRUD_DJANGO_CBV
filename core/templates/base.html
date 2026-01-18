@@ -10,10 +10,13 @@
     {% bootstrap_messages %}
 
 </head>
+
 <body>
+    {% include "navbar.html" %}
     <div class="container">
         <h1> CRUD VIA CBV</h1>
         {% block content %}{% endblock content %}
+
 
 </body>
 {% bootstrap_javascript %}
